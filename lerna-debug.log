@@ -1,0 +1,13 @@
+0 silly argv { _: [ 'add' ],
+0 silly argv   dev: true,
+0 silly argv   D: true,
+0 silly argv   globs: [],
+0 silly argv   lernaVersion: '3.2.1',
+0 silly argv   '$0': 'node_modules\\lerna\\cli.js',
+0 silly argv   pkg: 'webpack' }
+1 notice cli v3.2.1
+2 verbose rootPath D:\js\myecs
+3 info Adding webpack in 2 packages
+4 verbose add webpack@^4.17.2 to devDependencies in @vladnet/ecs
+5 verbose add webpack@^4.17.2 to devDependencies in @vladnet/helpers
+6 error

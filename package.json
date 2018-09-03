@@ -1,0 +1,19 @@
+{
+  "name": "@vladnet/myecs",
+  "version": "1.0.0-a",
+  "description": "Entity Component System for Javascript",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "compile:helpers": "cd packages/helpers && yarn run compile && cd ../../",
+    "compile:ecs": "cd packages/ecs && yarn run compile && cd ../../",
+    "watch:helpers": "cd packages/helpers && yarn run compile:watch && cd ../../",
+    "watch:ecs": "cd packages/ecs && yarn run compile:watch && cd ../../",
+    "watch:all": "concurrently -n \"helpers,ecs\" \"yarn run watch:helpers\" \"yarn run watch:ecs\""
+  },
+  "devDependencies": {
+    "concurrently": "^4.0.1",
+    "lerna": "^3.2.1"
+  }
+}

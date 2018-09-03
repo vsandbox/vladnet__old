@@ -1,0 +1,22 @@
+{
+  "name": "@vladnet/ecs",
+  "version": "1.0.0-a",
+  "description": "ECS inspired by Unity3d ECS",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "compile": "webpack",
+    "compile:watch": "webpack --watch"
+  },
+  "dependencies": {
+    "@vladnet/helpers": "^1.0.0-a"
+  },
+  "devDependencies": {
+    "@types/webpack-env": "^1.13.6",
+    "ts-loader": "^4.4.2",
+    "typescript": "^3.0.1",
+    "webpack": "^4.16.5",
+    "webpack-command": "^0.4.1"
+  }
+}

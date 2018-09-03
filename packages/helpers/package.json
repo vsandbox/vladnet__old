@@ -1,0 +1,21 @@
+{
+  "name": "@vladnet/helpers",
+  "version": "1.0.0-a",
+  "description": "Set of helpers",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "private": true,
+  "scripts": {
+    "compile": "webpack",
+    "compile:watch": "webpack --watch"
+  },
+  "author": "Vlad Sydorenko",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/webpack-env": "^1.13.6",
+    "ts-loader": "^4.4.2",
+    "typescript": "^3.0.1",
+    "webpack": "^4.16.5",
+    "webpack-command": "^0.4.1"
+  }
+}
