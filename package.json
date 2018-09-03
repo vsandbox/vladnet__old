@@ -1,5 +1,5 @@
 {
-  "name": "@vladnet/myecs",
+  "name": "vladnet",
   "version": "1.0.0-a",
   "description": "Entity Component System for Javascript",
   "main": "dist/index.js",
