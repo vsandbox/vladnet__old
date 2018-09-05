@@ -1,0 +1,17 @@
+{
+  "name": "@vladnet/ecs-addon",
+  "version": "1.0.0-a",
+  "main": "src/index.js",
+  "license": "MIT",
+  "private": true,
+  "gypfile": true,
+  "scripts": {
+    "build:dev": "node-gyp -j 16 build --debug --nodedir D:\\js\\node\\node-v10.9.0",
+    "rebuild:dev": "node-gyp -j 16 rebuild --debug --nodedir D:\\js\\node\\node-v10.9.0"
+  },
+  "devDependencies": {
+    "node-addon-api": "^1.4.0",
+    "node-gyp": "^3.8.0",
+    "nodemon": "^1.18.4"
+  }
+}

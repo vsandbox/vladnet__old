@@ -6,6 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
+    "build:addon:dev": "cd packages/addon && yarn run build:dev && cd ../../",
     "compile:helpers": "cd packages/helpers && yarn run compile && cd ../../",
     "compile:ecs": "cd packages/ecs && yarn run compile && cd ../../",
     "watch:helpers": "cd packages/helpers && yarn run compile:watch && cd ../../",
