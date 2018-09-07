@@ -1,7 +1,8 @@
 #include <napi.h>
+#include "Connector.h"
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
-    exports.Set("test", Napi::Number::New(env, 10.0));
+    Connector::Init(env, exports);
     return exports;
 }
 
