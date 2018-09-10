@@ -1,6 +1,6 @@
 {
     "targets": [{
-        "target_name": "addon",
+        "target_name": "rcsnative",
         "cflags!": [ "-fno-exceptions" ],
         "cflags_cc!": [ "-fno-exceptions" ],
         "sources": [
