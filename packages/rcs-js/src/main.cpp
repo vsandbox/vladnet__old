@@ -5,71 +5,43 @@
 //     Connector::Init(env, exports);
 //     return exports;
 // }
-
-
 #include <string>
+
 #include <napi.h>
 #include <RCS.h>
 
-struct Obj {
-    std::string name;
-    double age;
-    std::string password;
-    std::string role;
-};
-
-Napi::Value CopyArray(Napi::CallbackInfo& info) {
+Napi::Value GetBuffer(Napi::CallbackInfo& info) {
     auto env = info.Env();
-    auto arr = info[0].As<Napi::Array>();
-    auto nativeArr = new Obj[arr.Length()];
+    
+    char* value = new char[2];
+    auto buffer = Napi::Buffer<char>::New(env, value, 2);
 
-    for(size_t i = 0; i < arr.Length(); i++)
-    {
-        auto obj = arr.Get(i).As<Napi::Object>();
-        auto cppObj = Obj({
-            obj.Get("name").As<Napi::String>().operator std::string(),
-            obj.Get("age").As<Napi::Number>().DoubleValue(),
-            obj.Get("password").As<Napi::String>().operator std::string(),
-            obj.Get("role").As<Napi::String>().operator std::string(),
-        });
-        nativeArr[i] = cppObj;
-    }
+    //value[0] = 'a';
+    //value[1] = 'g';
 
-    auto newArr = Napi::Array::New(env, arr.Length());
-    for(size_t i = 0; i < arr.Length(); i++)
-    {
-        auto cppObj = nativeArr[i];
-        auto newObj = Napi::Object::New(env);
-        newObj.Set("name", cppObj.name);
-        newObj.Set("age", cppObj.age);
-        newObj.Set("password", cppObj.password);
-        newObj.Set("role", cppObj.role);
-        newArr.Set(i, newObj);
-    }
-
-    return newArr;
+    //return env.Global();
+    return buffer;
 }
 
-Napi::Value Test(Napi::CallbackInfo& info) {
+Napi::Value TestFunction(Napi::CallbackInfo& info) {
     auto env = info.Env();
-    auto obj = info[0].As<Napi::Object>();
-    auto cppObj = Obj({
-        obj.Get("name").As<Napi::String>().operator std::string(),
-        obj.Get("age").As<Napi::Number>().DoubleValue(),
-        obj.Get("password").As<Napi::String>().operator std::string(),
-        obj.Get("role").As<Napi::String>().operator std::string(),
-    });
-    auto newObj = Napi::Object::New(env);
-    newObj.Set("name", cppObj.name);
-    newObj.Set("age", cppObj.age);
-    newObj.Set("password", cppObj.password);
-    newObj.Set("role", cppObj.role);
-    return newObj;
+    auto arr = info[0].As<Napi::Array>();
+    auto length = arr.Length();
+
+    for (size_t i = 0; i < length; i++)
+    {
+        auto item = arr.Get(i).As<Napi::Object>();
+        auto x = item.Get("x").As<Napi::Buffer<int>>().Data();
+        //item.Get("x").As<Napi::Buffer<int>>()
+        x[0] = 10;
+    }
+
+    return arr;
 }
 
 Napi::Object Init(Napi::Env env, Napi::Object exports) {
-    exports.Set("copy", Napi::Function::New(env, Test, "Test"));
-    exports.Set("copyArray", Napi::Function::New(env, CopyArray));
+    exports.Set("testFunction", Napi::Function::New(env, TestFunction, "TestFunction"));
+    exports.Set("getBuffer", Napi::Function::New(env, GetBuffer, "GetBuffer"));
     return exports;
 }
 

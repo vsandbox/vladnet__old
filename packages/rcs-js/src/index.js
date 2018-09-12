@@ -1,26 +1,24 @@
 const addon = require('../build/Debug/rcjs.node');
 
-let obj = {
-    name: "Vasyl",
-    age: 10,
-    password: "Vasyl@mail.com",
-    role: "Admin",
-};
+const buffer = addon.getBuffer();
 
-let objs = [];
-for (let i = 0; i < 10000; i++) {
-    objs.push(obj);
-}
+console.log(buffer.toString());
 
-let newObj;
-console.time("copy");
-newObj = addon.copy(obj);
-console.timeEnd("copy");
+// const MAX = 2;
 
-let newArr;
-console.time("copyArray");
-newArr = addon.copyArray(objs);
-console.timeEnd("copyArray");
+// let arr = [];
+// for (let i = 0; i < 20000; i++) {
+//     arr.push({
+//         name: Buffer.from("Username"),
+//         x: Buffer.from("1"),
+//         y: Buffer.from("1"),
+//     });
+// }
 
-console.log("newObj", newObj);
-console.log("newArr", newArr.length);
+// console.log("before", arr[0].x[0]);
+
+// console.time("time");
+// addon.testFunction(arr);
+// console.timeEnd("time");
+
+// console.log("after", arr[0].x[0]);
