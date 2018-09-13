@@ -1,0 +1,27 @@
+{
+  "name": "@vladnet/benchmark",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "compile": "webpack",
+    "compile:watch": "webpack --watch",
+    "dev:watch": "nodemon -w ./src/*",
+    "start": "concurrently -n \"compile,app\" \"yarn run compile:watch\" \"yarn run dev:watch\""
+  },
+  "devDependencies": {
+    "@types/text-encoding": "^0.0.33",
+    "@types/webpack-env": "^1.13.6",
+    "concurrently": "^4.0.1",
+    "nodemon": "^1.18.4",
+    "ts-loader": "^4.4.2",
+    "typescript": "^3.0.1",
+    "webpack": "^4.16.5",
+    "webpack-command": "^0.4.1"
+  },
+  "dependencies": {
+    "@vladnet/helpers": "^1.0.0-a",
+    "text-encoding": "^0.6.4"
+  }
+}

@@ -2,7 +2,6 @@ const path = require("path");
 const webpack = require("webpack");
 
 module.exports = function(options = {}) {
-  console.log("\n\n\n\nOPTIONS", options, "\n\n\n\n");
   return {
     entry: options.entry || "./src/index.ts",
     mode: options.mode || "development",

@@ -11,6 +11,7 @@
     "compile:ecs": "cd packages/ecs && yarn run compile && cd ../../",
     "watch:helpers": "cd packages/helpers && yarn run compile:watch && cd ../../",
     "watch:ecs": "cd packages/ecs && yarn run compile:watch && cd ../../",
+    "watch:benchmark": "cd projects/benchmark/benchmark && yarn run compile:watch && cd ../../../",
     "watch:all": "concurrently -n \"helpers,ecs\" \"yarn run watch:helpers\" \"yarn run watch:ecs\""
   },
   "devDependencies": {
